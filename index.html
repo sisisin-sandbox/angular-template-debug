@@ -1,0 +1,27 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <title>how to debug?</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script>
+      angular.module('app', []);
+      class Hoge {
+        constructor(){
+          this.arr = [1,2,3];
+        }
+        test(item){
+          console.log(item);
+        }
+      }
+      angular.module('app').controller('Hoge', Hoge);
+    </script>
+  </head>
+  <body>
+  <div ng-controller="Hoge as ctrl">
+    <ul>
+      <li ng-repeat="item in ctrl.arr" ng-bind="item" ng-init="ctrl.test(item)"></li>
+    </ul>
+  </div>
+</body>
+</html>
